@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lz</groupId>
+    <artifactId>slothlog</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <JAVAC_PATH>${env.JAVA_HOME}/bin/javac</JAVAC_PATH>
+        <JAVA_VERSION>1.8</JAVA_VERSION>
+        <ENCODING>UTF-8</ENCODING>
+        <COMPILE_PLUGIN_VERSION>3.3</COMPILE_PLUGIN_VERSION>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.10</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${COMPILE_PLUGIN_VERSION}</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <fork>true</fork>
+                    <executable>${JAVAC_PATH}</executable>
+                    <compilerVersion>${JAVA_VERSION}</compilerVersion>
+                    <source>${JAVA_VERSION}</source>
+                    <target>${JAVA_VERSION}</target>
+                    <encoding>${ENCODING}</encoding>
+                    <compilerArgument>-proc:none</compilerArgument>
+                    <compilerArgs>
+                        <arg>-bootclasspath</arg>
+                        <arg>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar:${java.home}/../lib/tools.jar</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
