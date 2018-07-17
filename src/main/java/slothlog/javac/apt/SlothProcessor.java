@@ -71,7 +71,7 @@ public class SlothProcessor extends AbstractProcessor {
                 return false;
             }
         } catch (Exception e) {
-            messager.printMessage(Diagnostic.Kind.WARNING, e.getMessage());
+//            messager.printMessage(Diagnostic.Kind.WARNING, e.getMessage());
             return false;
         }
         return true;

@@ -301,4 +301,15 @@ public class JavacHandlerUtil {
         }
         return ((JCTree.JCClassDecl)typeNode.getNode()).name.toString();
     }
+
+    public static boolean isInterface(JavacNode javacNode) {
+        if (javacNode.getKind() != NodeKind.TYPE){
+            return false;
+        }
+        JCTree.JCClassDecl jcClassDecl = (JCTree.JCClassDecl) javacNode.getNode();
+        if ((jcClassDecl.mods.flags & Flags.INTERFACE) != 0){
+            return true;
+        }
+        return false;
+    }
 }

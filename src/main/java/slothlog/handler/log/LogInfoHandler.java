@@ -32,6 +32,12 @@ public class LogInfoHandler implements AnnotationHandler<LogInfo> {
 
     @Override
     public void handle(AnnotationValues<LogInfo> annotation, JavacNode annotationNode) {
+        /**
+         * 不处理接口
+         */
+        if (JavacHandlerUtil.isInterface(JavacHandlerUtil.upToTypeNode(annotationNode))){
+            return;
+        }
         JavacNode node = annotationNode.getParent();
         switch (node.getKind()){
             case TYPE:
